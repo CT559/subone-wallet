@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* SubOne brand: deep navy → teal, inspired by logo gradient */
+  --brand-from: #0d2d6b;
+  --brand-mid:  #1a5cb8;
+  --brand-to:   #00c9a7;
+
+  --bg: #e8f1fb;
+  --bg-gradient: linear-gradient(160deg, #dbeafe 0%, #e0f2fe 35%, #ccfbf1 70%, #f0fdf4 100%);
+  --surface: rgba(255, 255, 255, 0.75);
+  --surface-strong: rgba(255, 255, 255, 0.95);
+  --surface-muted: rgba(219, 234, 254, 0.55);
+  --ink: #0d2d6b;
+  --ink-2: #1e3a6e;
+  --muted: #3b5998;
+  --subtle: #6b84b8;
+  --border: rgba(13, 45, 107, 0.13);
+  --border-strong: rgba(13, 45, 107, 0.40);
+  --accent: #1a3a8f;
+  --accent-2: #00c9a7;
+  --accent-hover: #1a5cb8;
+  --accent-gradient: linear-gradient(135deg, #1a3a8f 0%, #1a5cb8 50%, #00c9a7 100%);
+  --focus: #60a5fa;
+  --success: #00b894;
+  --danger: #e53e6d;
+}
+
+/* Dark mode: deep navy base, keeps brand accent */
+html.dark {
+  --bg: #070e1f;
+  --bg-gradient: linear-gradient(160deg, #071630 0%, #0a2040 35%, #082a35 70%, #06201a 100%);
+  --surface: rgba(15, 30, 65, 0.85);
+  --surface-strong: rgba(20, 40, 80, 0.97);
+  --surface-muted: rgba(15, 30, 65, 0.60);
+  --ink: #e0eeff;
+  --ink-2: #b8cef0;
+  --muted: #7aa0d4;
+  --subtle: #4d6fa8;
+  --border: rgba(100, 160, 255, 0.12);
+  --border-strong: rgba(100, 160, 255, 0.30);
+  --accent: #2563eb;
+  --accent-2: #00c9a7;
+  --accent-hover: #3b82f6;
+  --accent-gradient: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #00c9a7 100%);
+  --focus: #93c5fd;
+  --success: #00c9a7;
+  --danger: #f43f5e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100dvh;
+  background: var(--bg-gradient);
+}
+
+.display {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.03em;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', Menlo, monospace;
+}
+
+/* Sonner toasts */
+[data-sonner-toaster] {
+  font-family: 'DM Sans', sans-serif;
+}

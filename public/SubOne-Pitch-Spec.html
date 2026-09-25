@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SubOne — Product Specification & Pitch</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: linear-gradient(135deg, #dbeafe 0%, #e0f2fe 50%, #ccfbf1 100%);
+    min-height: 100vh;
+    color: #122d45;
+    padding: 40px 20px 80px;
+  }
+  .container { max-width: 860px; margin: 0 auto; }
+  .logo-header {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 40px; padding-bottom: 24px;
+    border-bottom: 2px solid rgba(26,58,143,0.15);
+  }
+  .logo-box {
+    width: 64px; height: 64px; border-radius: 16px;
+    background: linear-gradient(135deg, #1a3a8f, #1a5cb8, #00c9a7);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; font-weight: 900; color: white; letter-spacing: -1px;
+  }
+  .logo-text h1 { font-size: 32px; font-weight: 800; color: #1a3a8f; letter-spacing: -1px; }
+  .logo-text p { font-size: 14px; color: #4a7fa8; margin-top: 2px; }
+  .version { font-size: 12px; color: #7a9ab8; margin-left: auto; }
+  h2 {
+    font-size: 22px; font-weight: 700; color: #1a3a8f;
+    margin: 40px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(26,58,143,0.12);
+  }
+  h3 { font-size: 16px; font-weight: 700; color: #1a5cb8; margin: 24px 0 10px; }
+  p { font-size: 15px; line-height: 1.7; color: #2a4a65; margin-bottom: 12px; }
+  strong { color: #1a3a8f; }
+  ul, ol { padding-left: 22px; margin-bottom: 12px; }
+  li { font-size: 15px; line-height: 1.7; color: #2a4a65; margin-bottom: 4px; }
+  table {
+    width: 100%; border-collapse: collapse; margin: 16px 0 24px;
+    border-radius: 12px; overflow: hidden;
+    box-shadow: 0 2px 12px rgba(26,58,143,0.08);
+  }
+  th {
+    background: linear-gradient(135deg, #1a3a8f, #1a5cb8);
+    color: white; font-size: 13px; font-weight: 600;
+    padding: 10px 14px; text-align: left;
+  }
+  td {
+    padding: 10px 14px; font-size: 14px; color: #2a4a65;
+    border-bottom: 1px solid rgba(26,58,143,0.07);
+    background: rgba(255,255,255,0.75);
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: rgba(255,255,255,0.55); }
+  td strong { color: #00a07a; }
+  .card {
+    background: rgba(255,255,255,0.80);
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin: 16px 0;
+    border: 1.5px solid rgba(26,58,143,0.10);
+    box-shadow: 0 2px 12px rgba(26,58,143,0.06);
+  }
+  .address {
+    font-family: 'Courier New', monospace;
+    font-size: 13px; color: #1a5cb8;
+    background: rgba(26,58,143,0.06);
+    padding: 4px 10px; border-radius: 6px;
+    display: inline-block; margin: 4px 0;
+  }
+  .tagline {
+    font-size: 18px; font-style: italic; color: #1a5cb8;
+    text-align: center; margin: 0 0 32px;
+    padding: 16px; background: rgba(255,255,255,0.6);
+    border-radius: 12px; border-left: 4px solid #00c9a7;
+  }
+  .highlight {
+    background: linear-gradient(135deg, rgba(26,58,143,0.06), rgba(0,201,167,0.06));
+    border-radius: 12px; padding: 16px 20px; margin: 12px 0;
+    border-left: 3px solid #1a5cb8;
+  }
+  .footer {
+    margin-top: 60px; padding-top: 24px;
+    border-top: 2px solid rgba(26,58,143,0.12);
+    font-size: 13px; color: #4a7fa8; text-align: center;
+    font-style: italic; line-height: 1.8;
+  }
+  @media print {
+    body { background: white; padding: 20px; }
+    .card { box-shadow: none; border: 1px solid #ddd; }
+    table { box-shadow: none; }
+    th { background: #1a3a8f !important; -webkit-print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="logo-header">
+    <div class="logo-box">S1</div>
+    <div class="logo-text">
+      <h1>SubOne</h1>
+      <p>Product Specification &amp; Pitch Narrative</p>
+    </div>
+    <div class="version">Version 1.0 — September 2026</div>
+  </div>
+
+  <div class="tagline">"Receive international payments in under 1 minute, under 1% fee."</div>
+
+  <!-- 1. Problem -->
+  <h2>1. Problem Statement</h2>
+  <p>Vietnamese freelancers working with international clients face a broken payment stack:</p>
+  <table>
+    <tr><th>Method</th><th>Time to receive</th><th>Fee</th><th>Pain points</th></tr>
+    <tr><td>SWIFT / bank wire</td><td>3–5 business days</td><td>3–8%</td><td>Compliance holds, correspondent bank cuts</td></tr>
+    <tr><td>Payoneer</td><td>1–3 days</td><td>2–3% + FX spread</td><td>Account approval takes weeks, funds locked</td></tr>
+    <tr><td>Wise</td><td>1–2 days</td><td>0.5–2%</td><td>Requires verified recipient bank, limited VN coverage</td></tr>
+    <tr><td>Crypto (self-custody)</td><td>Minutes</td><td>&lt;1%</td><td>Too complex for non-technical clients and freelancers</td></tr>
+  </table>
+  <div class="highlight">
+    <strong>The gap:</strong> There is no tool that lets an international client pay a Vietnamese freelancer directly, instantly, cheaply, and with built-in dispute protection — without either party needing a bank account, a CEX account, or technical crypto knowledge.
+  </div>
+
+  <!-- 2. What SubOne Is -->
+  <h2>2. What SubOne Is</h2>
+  <p>SubOne is a <strong>USDC payment wallet</strong> built for cross-continental freelance work. It runs on <strong>Arc Chain</strong> and uses a <strong>smart contract escrow</strong> to give both client and freelancer trustless protection.</p>
+  <div class="card">
+    <ol>
+      <li>The <strong>freelancer</strong> creates a wallet, generates a payment request link (name + amount + job description), and shares it.</li>
+      <li>The <strong>client</strong> opens the link, connects their existing wallet (MetaMask / WalletConnect / Coinbase), deposits USDC into escrow.</li>
+      <li>The <strong>freelancer</strong> completes work, marks it done, USDC is released — confirmed on-chain in under 1 second.</li>
+      <li>If disputed, an arbiter resolves. If neither party acts, funds auto-release after the agreed window (default 30 days).</li>
+    </ol>
+    <p style="margin-top:12px;"><strong>No CEX. No bank. No SWIFT. No waiting.</strong></p>
+  </div>
+
+  <!-- 3. Arc Technologies -->
+  <h2>3. Arc Chain Technologies Used</h2>
+
+  <h3>3.1 USDC as Native Gas Token</h3>
+  <p>Arc Chain is unique: <strong>USDC is the native gas token</strong>. On every other chain (Ethereum, Base, Polygon), users need ETH/MATIC to pay gas — a separate asset the freelancer must acquire before they can do anything.</p>
+  <div class="highlight"><strong>Impact on SubOne:</strong> A freelancer who receives their first USDC payment can immediately send it, approve escrow contracts, or pay out — without ever buying a gas token. Zero onboarding friction.</div>
+
+  <h3>3.2 Sub-Second Finality</h3>
+  <p>Arc Chain confirms transactions in <strong>under 1 second</strong> with finality. Compare: Ethereum ~2–3 minutes, Polygon ~2 seconds, Base ~2 seconds.</p>
+  <div class="highlight"><strong>Impact on SubOne:</strong> When a client deposits USDC into escrow, the freelancer sees it confirmed in under a second. The "payment sent" moment feels instant — as fast as a Venmo notification, not a bank wire.</div>
+
+  <h3>3.3 Predictable, Stable Fees</h3>
+  <p>Because USDC is the gas token, Arc fees are denominated in a stable asset. On Ethereum, gas costs fluctuate with ETH price. On Arc, the fee is a predictable fraction of a cent regardless of market conditions.</p>
+  <div class="highlight"><strong>Impact on SubOne:</strong> The UI shows "Fee: ~$0.50 (0.5%)" and that number is accurate. No surprises at settlement time.</div>
+
+  <h3>3.4 SubOneEscrow Smart Contract (on Arc Testnet)</h3>
+  <p>Contract address: <span class="address">0x2fcb5f8c35bd16cb26c151f2ede8020683d5f3f5</span></p>
+  <div class="card">
+    <ul>
+      <li><strong>Job lifecycle:</strong> Active → Completed → Released / Disputed / Refunded</li>
+      <li><strong>Per-job fee snapshot:</strong> fee locked at job creation (0.5% default, 2% max)</li>
+      <li><strong>Auto-release:</strong> if neither party acts within the agreed window, anyone can trigger release to freelancer</li>
+      <li><strong>Dispute window:</strong> closes at <code>autoReleaseAt</code> — prevents late disputes on already-released funds</li>
+      <li><strong>Arbiter resolution:</strong> designated arbiter (upgradeable to multisig/DAO) resolves disputes</li>
+      <li><strong>No custodian:</strong> SubOne itself cannot touch funds — only contract logic moves money</li>
+    </ul>
+    <p style="margin-top:10px; font-size:13px; color:#4a7fa8;">3 rounds of security review before deployment. 5 Critical/High findings fixed.</p>
+  </div>
+
+  <h3>3.5 Arc RPC + Block Explorer</h3>
+  <p>SubOne reads on-chain state (balances, job list, transaction history) directly from <span class="address">https://rpc.testnet.arc.io</span> using viem. All transaction links point to <span class="address">https://explorer.testnet.arc.io</span>.</p>
+
+  <!-- 4. How It Helps -->
+  <h2>4. How SubOne Helps Cross-Continental Freelancers</h2>
+
+  <h3>The Freelancer (Vietnam side)</h3>
+  <div class="card">
+    <ol>
+      <li>Opens SubOne, connects MetaMask wallet in 10 seconds.</li>
+      <li>Taps "Receive" → enters $500 USDC + "UI design, 3 screens" → gets a shareable link.</li>
+      <li>Sends link to client over Telegram / email / Upwork chat.</li>
+      <li>Client pays → USDC confirmed in wallet in <strong>under 1 second</strong>.</li>
+      <li>Marks job complete → USDC released. Done.</li>
+    </ol>
+    <p style="margin-top: 12px;"><strong>Time to funds: under 1 minute. Fee: 0.5%.</strong></p>
+  </div>
+
+  <h3>The Client (international side)</h3>
+  <div class="card">
+    <ol>
+      <li>Clicks payment link — opens in any browser, no app needed.</li>
+      <li>Connects existing MetaMask or Coinbase Wallet.</li>
+      <li>Approves USDC + creates escrow in 2 transactions (each confirmed in &lt;1s on Arc).</li>
+      <li>Funds sit in trustless escrow — client can open a dispute if work is not delivered.</li>
+      <li>Once freelancer marks complete, client releases funds with one tap.</li>
+    </ol>
+    <p style="margin-top: 12px; font-size: 13px; color: #4a7fa8;">The client does not need to know what Arc Chain is. They just need USDC in a wallet they already own.</p>
+  </div>
+
+  <!-- 5. Competitive Differentiation -->
+  <h2>5. Competitive Differentiation</h2>
+  <table>
+    <tr><th>Feature</th><th>SubOne</th><th>Payoneer</th><th>Wise</th><th>Upwork</th><th>Request Network</th></tr>
+    <tr><td>Settlement time</td><td><strong>&lt;1 minute</strong></td><td>1–3 days</td><td>1–2 days</td><td>5–7 days</td><td>Minutes (manual)</td></tr>
+    <tr><td>Fee</td><td><strong>0.5%</strong></td><td>2–3%</td><td>0.5–2%</td><td>20%</td><td>Gas only</td></tr>
+    <tr><td>Escrow / dispute</td><td><strong>On-chain, trustless</strong></td><td>None</td><td>None</td><td>Custodial</td><td>Manual, no arbiter</td></tr>
+    <tr><td>No bank account needed</td><td><strong>Yes</strong></td><td>No</td><td>No</td><td>No</td><td>Yes</td></tr>
+    <tr><td>No CEX needed</td><td><strong>Yes</strong></td><td>No</td><td>No</td><td>No</td><td>Yes</td></tr>
+    <tr><td>USDC as gas (no ETH)</td><td><strong>Yes (Arc Chain)</strong></td><td>N/A</td><td>N/A</td><td>N/A</td><td>No</td></tr>
+    <tr><td>Sub-second confirmation</td><td><strong>Yes (Arc Chain)</strong></td><td>No</td><td>No</td><td>No</td><td>Depends on chain</td></tr>
+    <tr><td>Payment request link</td><td><strong>Yes</strong></td><td>Yes</td><td>Yes</td><td>No</td><td>Partial</td></tr>
+    <tr><td>Vietnamese bank offramp</td><td><strong>Via MIMO sandbox</strong></td><td>Direct</td><td>Direct</td><td>No</td><td>No</td></tr>
+  </table>
+
+  <h3>Key differentiators in one sentence each</h3>
+  <div class="card">
+    <p><strong>vs. Payoneer / Wise:</strong> SubOne settles in seconds, not days, at a fraction of the fee — and does not require a verified bank account.</p>
+    <p><strong>vs. Upwork:</strong> Upwork takes 20% and holds funds. SubOne holds 0.5% and the smart contract holds the rest — neither SubOne nor anyone else can access it.</p>
+    <p><strong>vs. Request Network / other crypto invoicing:</strong> Those tools require the client to know which chain to use, buy gas, and understand crypto UX. SubOne abstracts all of that: USDC on Arc, gas is USDC, link-based payment flow.</p>
+    <p><strong>vs. raw MetaMask USDC transfer:</strong> No dispute protection, no job description, no escrow. One wrong address = funds gone forever. SubOne adds all of this.</p>
+  </div>
+
+  <!-- 6. Regulatory Context -->
+  <h2>6. Regulatory Context (Vietnam)</h2>
+  <div class="card">
+    <p>SubOne operates in alignment with <strong>Nghị quyết 05/2025/NQ-CP</strong> — Vietnam's regulatory sandbox framework for fintech and blockchain applications.</p>
+    <p>The off-ramp path to VND uses <strong>Dragon Lab's MIMO</strong> service, which holds sandbox license <strong>GP 1724/GP-SKHCN</strong> issued by the Da Nang Department of Science &amp; Technology, valid until 17/12/2028. MIMO is non-custodial, uses VNPT AI for eKYC, and requires physical presence at approved locations in Da Nang.</p>
+    <p><strong>SubOne itself does not hold, exchange, or transmit Vietnamese Dong.</strong> It is a USDC payment tool. VND conversion is a separate, complementary service.</p>
+  </div>
+
+  <!-- 7. Tech Stack -->
+  <h2>7. Technical Stack</h2>
+  <table>
+    <tr><th>Layer</th><th>Technology</th></tr>
+    <tr><td>Blockchain</td><td>Arc Chain (Testnet, Chain ID 5042002)</td></tr>
+    <tr><td>Smart contract</td><td>Solidity 0.8, OpenZeppelin, deployed via Circle SCP</td></tr>
+    <tr><td>Frontend</td><td>React + TypeScript + Vite + Tailwind CSS</td></tr>
+    <tr><td>Wallet connection</td><td>wagmi v2 + ConnectKit (MetaMask, WalletConnect, Coinbase)</td></tr>
+    <tr><td>On-chain reads</td><td>viem public client, wagmi useReadContract</td></tr>
+    <tr><td>USDC</td><td>ERC-20 at 0x3600…0000 (6 decimals, also native gas at 18 decimals)</td></tr>
+    <tr><td>i18n</td><td>Custom React context, EN/VI, localStorage persistence</td></tr>
+    <tr><td>Theme</td><td>Dark/Light mode, CSS custom properties, localStorage persistence</td></tr>
+  </table>
+
+  <!-- 8. Roadmap -->
+  <h2>8. Roadmap</h2>
+  <div class="card">
+    <p><strong>MVP (current):</strong> Wallet, send/receive USDC, escrow contract, payment request link + QR, VND offramp guidance, EN/VI i18n, dark/light mode.</p>
+    <p><strong>V1.1:</strong> Passkey / biometric login (Circle Modular Wallets) — replaces MetaMask dependency for mobile-first users.</p>
+    <p><strong>V1.2:</strong> Payment request link as a hosted page (<code>subone.app/pay/0xABC</code>) — client opens in any browser, no app needed.</p>
+    <p><strong>V1.3:</strong> Direct MIMO API integration — one-tap VND withdrawal from within SubOne.</p>
+    <p><strong>V2.0:</strong> Multi-currency escrow (EURC), DAO arbiter, reputation system, invoice PDF with digital signature.</p>
+  </div>
+
+  <div class="footer">
+    SubOne is built on Arc Chain — the first blockchain where USDC is the native gas token.<br/>
+    Every design decision in SubOne exists because of what Arc makes possible:<br/>
+    <strong>instant finality, stable fees, and a single-asset UX.</strong>
+  </div>
+
+</div>
+</body>
+</html>
